@@ -1,6 +1,6 @@
 <script lang="ts">
   import './index.css';
-  import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from "./index.js";
+  import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from './index.js';
 
   // Define interfaces for props and constants
   interface ChyronConfig {
@@ -22,26 +22,39 @@
   // Constants for configuration
   const CONFIG: ChyronConfig = {
     logoSize: 175,
-    logoUrl: "https://placehold.co",
-    logoAlt: "Logo",
+    logoUrl: 'https://placehold.co',
+    logoAlt: 'Logo',
     defaultHeadlines: [
-      "Breaking News: Major Event Unfolds",
-      "Sports Update: Local Team Wins Championship",
-      "Weather Alert: Severe Storms Expected",
-      "Entertainment Buzz: Celebrity News",
-      "Technology Update: New Gadget Released",
-      "Health Advisory: Important Safety Tips",
-      "Finance News: Market Trends and Analysis",
-      "Travel Update: New Destinations Announced",
-      "Education News: School Board Meeting Highlights",
+      'Breaking News: Major Event Unfolds',
+      'Sports Update: Local Team Wins Championship',
+      'Weather Alert: Severe Storms Expected',
+      'Entertainment Buzz: Celebrity News',
+      'Technology Update: New Gadget Released',
+      'Health Advisory: Important Safety Tips',
+      'Finance News: Market Trends and Analysis',
+      'Travel Update: New Destinations Announced',
+      'Education News: School Board Meeting Highlights',
     ],
   };
 
   // Destructure props with defaults
-  let { breaking = false, headline = false, headlines = CONFIG.defaultHeadlines, logo = true, logoLeft = false, chyron = true } = $props() as Props;
+  let {
+    breaking = false,
+    headline = false,
+    headlines = CONFIG.defaultHeadlines,
+    logo = true,
+    logoLeft = false,
+    chyron = false,
+  } = $props() as Props;
 </script>
 
-<div class="chyron-wrapper {logoLeft ? 'chyron-wrapper--logo-left' : 'chyron-wrapper--logo-right'}">
+<div
+  class="chyron-wrapper"
+  class:chyron-wrapper--logo-left={logoLeft}
+  class:chyron-wrapper--logo-right={!logoLeft}
+  class:chyron-wrapper--no-chyron={!chyron}
+  class:chyron-wrapper--no-headline={!headline && breaking}
+>
   {#if breaking}
     <ChyronBreakingNews />
   {/if}
@@ -71,22 +84,66 @@
     width: var(--width);
     display: grid;
     gap: var(--gap);
-    grid-template-rows: auto 150px 100px;
+    grid-template-rows: auto auto 100px;
   }
 
   .chyron-wrapper--logo-left {
     grid-template-columns: auto 1fr;
     grid-template-areas:
-      "logo breaking"
-      "logo headline"
-      "chyron chyron";
+      'logo breaking'
+      'logo headline'
+      'chyron chyron';
   }
 
   .chyron-wrapper--logo-right {
     grid-template-columns: 1fr auto;
     grid-template-areas:
-      "breaking logo"
-      "headline logo"
-      "chyron chyron";
+      'breaking logo'
+      'headline logo'
+      'chyron chyron';
+  }
+
+  /* No Chyron: Shift Logo, Breaking, and Headline down */
+  .chyron-wrapper--no-chyron {
+    grid-template-rows: auto auto;
+  }
+
+  .chyron-wrapper--no-chyron.chyron-wrapper--logo-left {
+    grid-template-areas:
+      'logo breaking'
+      'logo headline';
+  }
+
+  .chyron-wrapper--no-chyron.chyron-wrapper--logo-right {
+    grid-template-areas:
+      'breaking logo'
+      'headline logo';
+  }
+
+  /* No Headline: Move Breaking down */
+  .chyron-wrapper--no-headline.chyron-wrapper--logo-left {
+    grid-template-areas:
+      'logo .'
+      'logo breaking'
+      'chyron chyron';
+  }
+
+  .chyron-wrapper--no-headline.chyron-wrapper--logo-right {
+    grid-template-areas:
+      '. logo'
+      'breaking logo'
+      'chyron chyron';
+  }
+
+  .chyron-wrapper--no-chyron.chyron-wrapper--no-headline.chyron-wrapper--logo-left {
+    grid-template-areas:
+      'logo .'
+      'logo breaking';
+  }
+
+  .chyron-wrapper--no-chyron.chyron-wrapper--no-headline.chyron-wrapper--logo-right {
+    grid-template-areas:
+      '. logo'
+      'breaking logo';
   }
 </style>

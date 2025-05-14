@@ -18,6 +18,7 @@
       font-weight: var(--font-weight-breaking-news);
       color: var(--color-text-light);
       margin-bottom: -1vh;
+      padding: 1rem 0;
     }
   }
 </style>

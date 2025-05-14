@@ -8,4 +8,4 @@
   <div class="overlay"></div>
 </div>
 
-<ChyronWrapper headline breaking logoLeft />
+<ChyronWrapper logoLeft />
