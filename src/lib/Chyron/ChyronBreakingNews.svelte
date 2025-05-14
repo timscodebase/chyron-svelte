@@ -17,6 +17,7 @@
       font-size: var(--font-size-breaking-news);
       font-weight: var(--font-weight-breaking-news);
       color: var(--color-text-light);
+      margin-bottom: -1vh;
     }
   }
 </style>
