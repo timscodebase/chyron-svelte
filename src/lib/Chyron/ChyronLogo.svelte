@@ -99,6 +99,7 @@
     color: var(--color-text-light, #ffffff);
     background-color: var(--color-logo-surface, #1a1a1a);
     border: var(--border-logo, 2px solid #333);
+    box-shadow: var(--shadow);
   }
 
   .image-container {

@@ -17,6 +17,7 @@
     /* Define the container for queries */
     container-name: breaking-container;
     container-type: size;
+    box-shadow: var(--shadow);
   }
 
   /* Default styles for the breaking text */

@@ -33,6 +33,7 @@
     background-color: var(--color-headline-surface);
     border: var(--border-header);
     border-radius: var(--size-border-radius);
+    box-shadow: var(--shadow);
 
     p {
       color: var(--color-text-dark);

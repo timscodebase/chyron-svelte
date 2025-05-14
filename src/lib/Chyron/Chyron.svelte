@@ -30,6 +30,7 @@
     border-radius: var(--size-border-radius);
     overflow: hidden;
     white-space: nowrap;
+    box-shadow: var(--double-shadow);
   }
 
   .scroll-container {
