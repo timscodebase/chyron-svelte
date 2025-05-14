@@ -1,0 +1,58 @@
+:root {
+  --red: rgba(255, 0, 0, 1);
+  --light-red: rgb(237, 172, 172);
+  --white: rgba(255, 255, 255, 1);
+  --dark-gray: rgba(35, 35, 35, 1);
+  --gray: rgb(126, 126, 126);
+  --light-gray:rgb(203, 203, 203);
+  --blue: rgba(0, 42, 255, 1);
+  --light-blue: rgb(191, 200, 246);
+
+  --size-border-radius: 1.5rem;
+  --size-border-width: 10px;
+
+  --color-headline-surface: var(--light-blue);
+  --color-logo-surface: var(--red);
+  --color-chyron-surface: var(--dark-gray);
+
+  --color-headline-border: var(--red);
+  --color-logo-border: var(--blue);
+  --color-chyron-border: var(--red);
+
+  --color-text-dark: var(--dark-gray);
+  --color-text-light: var(--white);
+
+  --border-header: var(--size-border-width) solid var(--color-headline-border);
+  --border-logo: var(--size-border-width) solid var(--color-logo-border);
+  --border-chyron: var(--size-border-width) solid var(--color-chyron-border);
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.inter-300 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+.inter-500 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.inter-700 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
