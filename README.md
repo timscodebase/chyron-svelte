@@ -1,58 +1,86 @@
-# Svelte library
+# Chyron Svelte
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+A Svelte library for creating customizable news tickers (chyrons) with scrolling headlines, dynamic logos, and headline displays. Built with SvelteKit and TypeScript, `chyron-svelte` is perfect for broadcast-style interfaces, news websites, or applications needing a dynamic ticker.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+**Current Version**: 0.2.5
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Scrolling Chyron**: Smoothly scrolls headlines with customizable separators (e.g., vertical ellipsis via Iconify).
+- **Dynamic Headline**: Cycles through headlines with fade transitions.
+- **Logo with Date/Time**: Displays a logo alongside rotating date, weekday, or time.
+- **Theme-able Styling**: Customize colors, fonts, and sizes using CSS variables (e.g., `--color-chyron-surface`, `--font-family-headline`).
+- **TypeScript Support**: Fully typed for robust development.
+- **Responsive Design**: Grid-based layout adapts to various screen sizes.
+- **TODO** ~~**Accessible**: Includes ARIA attributes for screen reader compatibility.~~
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Installation
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install the library via npm:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install chyron-svelte
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Ensure the Iconify library is included for icon support (used in Chyron.svelte):
 
-## Building
 
-To build your library:
+### HTML Head
+
+```html
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+```
+
+### *Alternatively, install the Svelte Iconify package for better integration:*
 
 ```bash
-npm run package
+npm install @iconify/svelte
 ```
 
-To create a production version of your showcase app:
+#### `+layout.svelte`
 
-```bash
-npm run build
+```svelte
+<script lang='ts'>
+  import 'iconify-icon';
+  ...
+</script>
 ```
 
-You can preview the production build with `npm run preview`.
+### Usage
+Import and use the `ChyronWrapper` component to combine all features, or use individual components (`Chyron`, `ChyronHeadline`, `ChyronLogo`) for specific needs.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### Basic Example
 
-## Publishing
+```svelte
+<script>
+  import { ChyronWrapper } from 'chyron-svelte';
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+  const headlines = [
+    'Breaking News: Major Event Unfolds',
+    'Sports Update: Team Wins Championship',
+    'Weather Alert: Severe Storms Expected'
+  ];
+</script>
 
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
+<ChyronWrapper
+  headline={true}
+  headlines={headlines}
+  logo={true}
+  logoLeft={true}
+  chyron={true}
+  logoUrl="https://placehold.co"
+  logoAlt="News Logo"
+  logoSize={150}
+/>
 ```
+
+This renders a chyron with:
+A scrolling ticker (`Chyron`) showing headlines separated by vertical ellipsis icons.
+
+A cycling headline section (`ChyronHeadline`).
+
+A logo with rotating date/time (`ChyronLogo`).
+
+
+
+
