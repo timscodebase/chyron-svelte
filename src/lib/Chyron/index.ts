@@ -1,6 +1,6 @@
 
 import Chyron from "./Chyron.svelte";
-import Headline from "./Headline.svelte";
+import ChyronHeadline from "./ChyronHeadline.svelte";
 import ChyronLogo from "./ChyronLogo.svelte";
 
-export { Chyron, Headline, ChyronLogo };
+export { Chyron, ChyronHeadline, ChyronLogo };

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Chyron, Headline, ChyronLogo } from "./index.js";
+  import { Chyron, ChyronHeadline, ChyronLogo } from "./index.js";
 
   // Define interfaces for props and constants
   interface ChyronConfig {
@@ -44,7 +44,7 @@
     <ChyronLogo logoSize={CONFIG.logoSize} logoUrl={CONFIG.logoUrl} logoAlt={CONFIG.logoAlt} />
   {/if}
   {#if headline}
-    <Headline {headlines} />
+    <ChyronHeadline {headlines} />
   {/if}
 
   {#if logo}
