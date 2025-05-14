@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Chyron, ChyronHeadline, ChyronLogo } from "./index.js";
+  import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from "./index.js";
 
   // Define interfaces for props and constants
   interface ChyronConfig {
@@ -10,6 +10,7 @@
   }
 
   interface Props {
+    breaking?: boolean;
     headline?: boolean;
     headlines?: string[];
     logo?: boolean;
@@ -36,21 +37,19 @@
   };
 
   // Destructure props with defaults
-  let { headline = false, headlines = CONFIG.defaultHeadlines, logo = true, logoLeft = false, chyron = true } = $props() as Props;
+  let { breaking = false, headline = false, headlines = CONFIG.defaultHeadlines, logo = true, logoLeft = false, chyron = true } = $props() as Props;
 </script>
 
 <div class="chyron-wrapper {logoLeft ? 'chyron-wrapper--logo-left' : 'chyron-wrapper--logo-right'}">
+  {#if breaking}
+    <ChyronBreakingNews />
+  {/if}
   {#if logo}
     <ChyronLogo logoSize={CONFIG.logoSize} logoUrl={CONFIG.logoUrl} logoAlt={CONFIG.logoAlt} />
   {/if}
   {#if headline}
     <ChyronHeadline {headlines} />
   {/if}
-
-  {#if logo}
-    <ChyronLogo logoSize={CONFIG.logoSize} logoUrl={CONFIG.logoUrl} logoAlt={CONFIG.logoAlt} />
-  {/if}
-
   {#if chyron}
     <Chyron {headlines} />
   {/if}
@@ -58,35 +57,35 @@
 
 <style>
   .chyron-wrapper {
-  --logo-size: 175px;
-  --gap: 1rem;
-  --offset: 1vw;
-  --width: 98vw;
+    --logo-size: 175px;
+    --gap: 10px;
+    --offset: 1vw;
+    --width: 97vw;
 
-  position: fixed;
-  bottom: var(--offset);
-  left: var(--offset);
-  right: var(--offset);
-  z-index: 1000;
-  width: var(--width);
-  display: grid;
-  gap: var(--gap);
-  grid-template-rows: auto 175px 100px;
-}
+    position: fixed;
+    bottom: var(--offset);
+    left: var(--offset);
+    right: var(--offset);
+    z-index: 1000;
+    width: var(--width);
+    display: grid;
+    gap: var(--gap);
+    grid-template-rows: auto 150px 100px;
+  }
 
-.chyron-wrapper--logo-left {
-  grid-template-columns: auto 1fr;
-  grid-template-areas:
-    "logo ." /* First row: logo in first column, second column empty */
-    "logo headline" /* Second row: logo and headline */
-    "chyron chyron"; /* Third row: chyron spans both columns */
-}
+  .chyron-wrapper--logo-left {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo breaking"
+      "logo headline"
+      "chyron chyron";
+  }
 
-.chyron-wrapper--logo-right {
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    ". logo" /* First row: first column empty, logo in second column */
-    "headline logo" /* Second row: headline and logo */
-    "chyron chyron"; /* Third row: chyron spans both columns */
-}
+  .chyron-wrapper--logo-right {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "breaking logo"
+      "headline logo"
+      "chyron chyron";
+  }
 </style>
