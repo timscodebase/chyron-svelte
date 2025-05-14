@@ -13,6 +13,12 @@
       layout: 'fullscreen',
     },
     argTypes: {
+      breaking: {
+        control: 'boolean'
+      },
+      logoLeft: {
+        control: 'boolean'
+      },
       headline: {
         control: 'boolean'
       },
@@ -31,6 +37,9 @@
 
 <!-- The full Chyron Set -->
 <Story name="Everything" args={{ primary: true }} />
+
+<!-- Only the Breaking -->
+<Story name="Breaking" args={{ breaking: true, logo: false, headline: false }} />
 
 <!-- Only the Chyron -->
 
