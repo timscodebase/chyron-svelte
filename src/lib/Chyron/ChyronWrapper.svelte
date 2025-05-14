@@ -59,14 +59,15 @@
 <style>
   .chyron-wrapper {
   --logo-size: 175px;
-  --gap: 10px;
-  --bottom-offset: 1vh;
-  --left-offset: 1vw;
+  --gap: 1rem;
+  --offset: 1vw;
   --width: 98vw;
 
   position: fixed;
-  bottom: var(--bottom-offset);
-  left: var(--left-offset);
+  bottom: var(--offset);
+  left: var(--offset);
+  right: var(--offset);
+  z-index: 1000;
   width: var(--width);
   display: grid;
   gap: var(--gap);
