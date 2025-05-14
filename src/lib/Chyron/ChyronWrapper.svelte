@@ -1,4 +1,5 @@
 <script lang="ts">
+  import './index.css';
   import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from "./index.js";
 
   // Define interfaces for props and constants

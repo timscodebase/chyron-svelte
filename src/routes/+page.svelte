@@ -1,4 +1,5 @@
 <script>
+  export const prerender = true;
   import { ChyronWrapper } from '$lib';
 </script>
 
