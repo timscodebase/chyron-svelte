@@ -2,19 +2,6 @@
   import { onMount } from 'svelte';
 
   let { headlines = [] } = $props() as { headlines: string[] };
-
-  const ICON = 'uil:ellipsis-v';
-
-  // Ensure Iconify is loaded
-  onMount(() => {
-    if (typeof window !== 'undefined' && !window.Iconify) {
-      const script = document.createElement('script');
-      script.src = 'https://code.iconify.design/3/3.1.0/iconify.min.js';
-      script.async = true;
-      document.head.appendChild(script);
-      return () => script.remove();
-    }
-  });
 </script>
 
 <div class="chyron">
@@ -23,7 +10,7 @@
       {#each headlines as headline, index}
         <span class="headline">{headline}</span>
         {#if index < headlines.length - 1}
-          <iconify-icon icon={ICON} class="separator"></iconify-icon>
+          <span class="separator">&nbsp;&brvbar;&nbsp;</span>
         {/if}
       {/each}
     {/each}
@@ -61,7 +48,7 @@
     display: inline-flex;
     align-items: center;
     font-size: 2rem; /* Match headline font size */
-    color: var(--color-text-light);
+    color: var(--color-chyron-separator);
     padding: 0 calc(var(--spacing-unit) / 2);
   }
 

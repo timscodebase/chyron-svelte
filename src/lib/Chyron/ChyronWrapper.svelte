@@ -39,12 +39,12 @@
 
   // Destructure props with defaults
   let {
-    breaking = false,
-    headline = false,
+    breaking = true,
+    headline = true,
     headlines = CONFIG.defaultHeadlines,
     logo = true,
     logoLeft = false,
-    chyron = false,
+    chyron = true,
   } = $props() as Props;
 </script>
 
@@ -54,6 +54,7 @@
   class:chyron-wrapper--logo-right={!logoLeft}
   class:chyron-wrapper--no-chyron={!chyron}
   class:chyron-wrapper--no-headline={!headline && breaking}
+  style="--logo-size: {CONFIG.logoSize}px;"
 >
   {#if breaking}
     <ChyronBreakingNews />
@@ -84,11 +85,11 @@
     width: var(--width);
     display: grid;
     gap: var(--gap);
-    grid-template-rows: auto auto 100px;
+    grid-template-rows: auto auto 80px;
   }
 
   .chyron-wrapper--logo-left {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: calc(var(--logo-size) + (var(--gap) * 4)) 1fr;
     grid-template-areas:
       'logo breaking'
       'logo headline'

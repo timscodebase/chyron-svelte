@@ -21,6 +21,7 @@
   --color-headline-surface: var(--light-blue);
   --color-logo-surface: var(--red);
   --color-chyron-surface: var(--dark-gray);
+  --color-chyron-separator: var(--light-blue);
   --color-breaking-news-background: var(--red);
 
   --color-headline-border: var(--red);
