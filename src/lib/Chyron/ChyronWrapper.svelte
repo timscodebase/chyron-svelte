@@ -49,7 +49,7 @@
 </script>
 
 <div
-  class="chyron-wrapper"
+  class="chyron-wrapper chyron-svelte"
   class:chyron-wrapper--logo-left={logoLeft}
   class:chyron-wrapper--logo-right={!logoLeft}
   class:chyron-wrapper--no-chyron={!chyron}
