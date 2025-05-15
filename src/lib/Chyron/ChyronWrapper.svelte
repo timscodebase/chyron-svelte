@@ -39,12 +39,12 @@
 
   // Destructure props with defaults
   let {
-    breaking = true,
+    breaking = false,
+    chyron = true,
+    logoLeft = false,
+    logo = true,
     headline = true,
     headlines = CONFIG.defaultHeadlines,
-    logo = true,
-    logoLeft = false,
-    chyron = true,
   } = $props() as Props;
 </script>
 
