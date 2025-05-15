@@ -1,6 +1,6 @@
 {
   "name": "chyron-svelte",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && npm run prepack",

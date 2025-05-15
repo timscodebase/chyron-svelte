@@ -24,7 +24,7 @@
   .breaking {
     font-weight: var(--font-weight-breaking-news);
     color: var(--color-text-light);
-    margin-bottom: -1vh;
+    text-align: center;
     padding: 1rem 0;
     /* Fallback font-size if container queries fail */
     font-size: calc(var(--logo-size, 175px) * 0.35);

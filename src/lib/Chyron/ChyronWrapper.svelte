@@ -85,7 +85,7 @@
     width: var(--width);
     display: grid;
     gap: var(--gap);
-    grid-template-rows: 1fr 1fr 80px;
+    grid-template-rows: 100px 1fr 80px;
   }
 
   .chyron-wrapper--logo-left {
