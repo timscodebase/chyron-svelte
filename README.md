@@ -2,7 +2,7 @@
 
 A Svelte library for creating customizable news tickers (chyrons) with scrolling headlines, dynamic logos, and headline displays. Built with SvelteKit and TypeScript, `chyron-svelte` is perfect for broadcast-style interfaces, news websites, or applications needing a dynamic ticker.
 
-**Current Version**: 0.2.5
+**Current Version**: 0.8.2
 
 ## Features
 
