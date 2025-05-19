@@ -12,7 +12,7 @@ A Svelte library for creating customizable news tickers (chyrons) with scrolling
 - **Theme-able Styling**: Customize colors, fonts, and sizes using CSS variables (e.g., `--color-chyron-surface`, `--font-family-headline`).
 - **TypeScript Support**: Fully typed for robust development.
 - **Responsive Design**: Grid-based layout adapts to various screen sizes.
-- **TODO** ~~**Accessible**: Includes ARIA attributes for screen reader compatibility.~~
+- **Accessible**: Includes ARIA attributes for screen reader compatibility.
 
 ## Installation
 
