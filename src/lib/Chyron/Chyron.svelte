@@ -48,7 +48,7 @@
   .separator {
     display: inline-flex;
     align-items: center;
-    font-size: 2rem; /* Match headline font size */
+    font-size: 2rem;
     color: var(--color-chyron-separator);
     padding: 0 calc(var(--spacing-unit) / 2);
   }
