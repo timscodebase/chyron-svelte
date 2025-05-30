@@ -83,4 +83,11 @@ A logo with rotating date/time (`ChyronLogo`).
 
 
 
+### Todos
 
+- [ ] Logo
+- [ ] Theme system
+- [ ] Ability to accept custom css
+- [ ] Better grid layout
+- - [ ] Re-sizeable
+- - [ ] Ability to add additional panels
