@@ -1,36 +1,38 @@
 <script lang="ts">
-import './styles.css';
-import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from './index.js';
+  import './styles.css';
+  import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from './index.js';
+  import type { ChyronWrapperProps } from './types.js';
 
-// Constants for configuration
-const CONFIG = {
-  logoSize: 175,
-  logoUrl: 'https://placehold.co',
-  logoAlt: 'Logo',
-  defaultHeadlines: [
-    'Breaking News: Major Event Unfolds',
-    'Sports Update: Local Team Wins Championship',
-    'Weather Alert: Severe Storms Expected',
-    'Entertainment Buzz: Celebrity News',
-    'Technology Update: New Gadget Released',
-    'Health Advisory: Important Safety Tips',
-    'Finance News: Market Trends and Analysis',
-    'Travel Update: New Destinations Announced',
-    'Education News: School Board Meeting Highlights',
-  ],
-};
+  // Constants for configuration
+  const CONFIG = {
+    logoSize: 175,
+    logoUrl: 'https://placehold.co',
+    logoAlt: 'Logo',
+    defaultHeadlines: [
+      'Breaking News: Major Event Unfolds',
+      'Sports Update: Local Team Wins Championship',
+      'Weather Alert: Severe Storms Expected',
+      'Entertainment Buzz: Celebrity News',
+      'Technology Update: New Gadget Released',
+      'Health Advisory: Important Safety Tips',
+      'Finance News: Market Trends and Analysis',
+      'Travel Update: New Destinations Announced',
+      'Education News: School Board Meeting Highlights',
+    ],
+  };
 
-let props = $props();
-let breaking = props.breaking ?? false;
-let chyron = props.chyron ?? true;
-let logoLeft = props.logoLeft ?? false;
-let logo = props.logo ?? true;
-let headline = props.headline ?? true;
-let headlines = props.headlines ?? CONFIG.defaultHeadlines;
-let logoUrl = props.logoUrl ?? CONFIG.logoUrl;
-let logoAlt = props.logoAlt ?? CONFIG.logoAlt;
-let logoSize = props.logoSize ?? CONFIG.logoSize;
-let customStyles = props.customStyles ?? {};
+  let {
+    breaking = false,
+    chyron = true,
+    logoLeft = false,
+    logo = true,
+    headline = true,
+    headlines = CONFIG.defaultHeadlines,
+    logoUrl = CONFIG.logoUrl,
+    logoAlt = CONFIG.logoAlt,
+    logoSize = CONFIG.logoSize,
+    customStyles = {},
+  } = $props() as ChyronWrapperProps;
 </script>
 
 <div
