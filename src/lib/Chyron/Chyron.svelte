@@ -1,20 +1,56 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+import { onMount } from 'svelte';
+import type { ChyronProps } from './types.js';
 
-  let { headlines = [] } = $props() as { headlines: string[] };
+interface Props {
+  headlines?: string[];
+  speed?: number;
+  separator?: string;
+}
+
+let { headlines = [], speed = 60, separator = '&brvbar;' } = $props();
+
+let scrollContainer: HTMLDivElement;
+let isPaused = $state(false);
+
+function togglePause() {
+  isPaused = !isPaused;
+}
+
+function handleKeydown(event: KeyboardEvent) {
+  if (event.key === ' ' || event.key === 'Enter') {
+    event.preventDefault();
+    togglePause();
+  }
+}
 </script>
 
-<div class="chyron">
-  <div class="scroll-container">
+  <div 
+    class="chyron" 
+    role="marquee" 
+    aria-label="News ticker with {headlines.length} headlines"
+    tabindex="0"
+    onkeydown={handleKeydown}
+    onpointerdown={togglePause}
+  >
+  <div 
+    class="scroll-container" 
+    class:paused={isPaused}
+    bind:this={scrollContainer}
+    style="animation-duration: {speed}s;"
+  >
     {#each [0, 1] as _}
       {#each headlines as headline, index}
         <span class="headline">{headline}</span>
         {#if index < headlines.length - 1}
-          <span class="separator">&nbsp;&brvbar;&nbsp;</span>
+          <span class="separator" aria-hidden="true">{@html separator}</span>
         {/if}
       {/each}
     {/each}
   </div>
+  {#if isPaused}
+    <div class="pause-indicator" aria-live="polite">Paused</div>
+  {/if}
 </div>
 
 <style>
@@ -31,11 +67,23 @@
     overflow: hidden;
     white-space: nowrap;
     box-shadow: var(--double-shadow);
+    position: relative;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .chyron:focus-visible {
+    outline: 2px solid var(--color-chyron-separator);
+    outline-offset: 2px;
   }
 
   .scroll-container {
     display: inline-flex;
-    animation: scroll 60s linear infinite;
+    animation: scroll var(--chyron-scroll-duration, 60s) linear infinite;
+  }
+
+  .scroll-container.paused {
+    animation-play-state: paused;
   }
 
   .headline {
@@ -53,8 +101,17 @@
     padding: 0 calc(var(--spacing-unit) / 2);
   }
 
-  .chyron:hover .scroll-container {
-    animation-play-state: paused;
+  .pause-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    pointer-events: none;
   }
 
   @keyframes scroll {

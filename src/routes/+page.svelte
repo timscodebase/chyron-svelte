@@ -1,26 +1,24 @@
 <script lang="ts">
-  import { ChyronWrapper } from 'chyron-svelte';
+import { ChyronWrapper } from 'chyron-svelte';
 
-  // Reactive state for toggles
-  let breaking = $state(false);
-  let headline = $state(true);
-  let logo = $state(true);
-  let logoLeft = $state(false);
-  let chyron = $state(true);
+// Reactive state for toggles
+let breaking = $state(false);
+let headline = $state(true);
+let logo = $state(true);
+let logoLeft = $state(false);
+let chyron = $state(true);
 
-  // Sample headlines (required by ChyronWrapper)
-  const headlines = [
-    'Breaking News: Major Event Unfolds',
-    'Sports Update: Team Wins Championship',
-    'Weather Alert: Severe Storms Expected'
-  ];
+// Sample headlines (required by ChyronWrapper)
+const headlines = [
+  'Breaking News: Major Event Unfolds',
+  'Sports Update: Team Wins Championship',
+  'Weather Alert: Severe Storms Expected',
+];
 
-  // Derived customStyles based on breaking state
-  let customStyles = $derived(
-    breaking
-      ? { 'color-chyron-surface': 'var(--color-breaking-news-background, #ff0000)' }
-      : {}
-  );
+// Derived customStyles based on breaking state
+let customStyles = $derived(
+  breaking ? { 'color-chyron-surface': 'var(--color-breaking-news-background, #ff0000)' } : {}
+);
 </script>
 
 <div class="toggles">

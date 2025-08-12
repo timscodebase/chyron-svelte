@@ -1,25 +1,25 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+import { onMount } from 'svelte';
 
-  interface Props {
-    headlines: string[];
-  }
+interface Props {
+  headlines: string[];
+}
 
-  let { headlines = [] } = $props() as Props;
+let { headlines = [] } = $props() as Props;
 
-  // Reactive variables for headline and chyron
-  let currentHeadline = $state(headlines[Math.floor(Math.random() * headlines.length)]);
+// Reactive variables for headline and chyron
+let currentHeadline = $state(headlines[Math.floor(Math.random() * headlines.length)]);
 
-  onMount(() => {
-    // Update headline every 5 seconds
-    const headlineInterval = setInterval(() => {
-      currentHeadline = headlines[Math.floor(Math.random() * headlines.length)];
-    }, 5000);
+onMount(() => {
+  // Update headline every 5 seconds
+  const headlineInterval = setInterval(() => {
+    currentHeadline = headlines[Math.floor(Math.random() * headlines.length)];
+  }, 5000);
 
-    return () => {
-      clearInterval(headlineInterval);
-    };
-  });
+  return () => {
+    clearInterval(headlineInterval);
+  };
+});
 </script>
 
 <div class="headline">

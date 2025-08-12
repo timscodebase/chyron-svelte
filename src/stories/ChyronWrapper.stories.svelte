@@ -1,38 +1,38 @@
 <script module>
-  import { defineMeta } from '@storybook/addon-svelte-csf';
-  import { ChyronWrapper } from '../lib/index.js';
-  import "../routes/index.css"
+import { defineMeta } from '@storybook/addon-svelte-csf';
+import { ChyronWrapper } from '../lib/index.js';
+import '../routes/index.css';
 
-  // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-  const { Story } = defineMeta({
-    title: 'ChyronWrapper',
-    component: ChyronWrapper,
-    tags: ['autodocs'],
-    parameters: {
-      // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-      layout: 'fullscreen',
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+const { Story } = defineMeta({
+  title: 'ChyronWrapper',
+  component: ChyronWrapper,
+  tags: ['autodocs'],
+  parameters: {
+    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
+    layout: 'fullscreen',
+  },
+  argTypes: {
+    breaking: {
+      control: 'boolean',
     },
-    argTypes: {
-      breaking: {
-        control: 'boolean'
-      },
-      logoLeft: {
-        control: 'boolean'
-      },
-      headline: {
-        control: 'boolean'
-      },
-      headlines: {
-        control: 'object'
-      },
-      logo: {
-        control: 'boolean',
-      },
-      chyron: {
-        control: 'boolean',
-      }
-    }
-  });
+    logoLeft: {
+      control: 'boolean',
+    },
+    headline: {
+      control: 'boolean',
+    },
+    headlines: {
+      control: 'object',
+    },
+    logo: {
+      control: 'boolean',
+    },
+    chyron: {
+      control: 'boolean',
+    },
+  },
+});
 </script>
 
 <!-- The full Chyron Set -->

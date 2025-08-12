@@ -1,8 +1,9 @@
 /* Import fonts (keep global, as font imports are safe) */
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 /* Scope variables and styles to .chyron-svelte */
 .chyron-svelte {
+  /* Color Palette */
   --red: rgba(255, 0, 0, 1);
   --light-red: rgb(237, 172, 172);
   --white: rgba(255, 255, 255, 1);
@@ -11,6 +12,25 @@
   --light-gray: rgb(203, 203, 203);
   --blue: rgba(0, 42, 255, 1);
   --light-blue: rgb(191, 200, 246);
+
+  /* Animation Settings */
+  --chyron-scroll-duration: 60s;
+  --headline-transition-duration: 0.5s;
+  --breaking-news-animation-duration: 2s;
+
+  /* Spacing and Sizing */
+  --spacing-unit: 1rem;
+  --border-width: 10px;
+  --border-radius: 1rem;
+
+  /* Typography */
+  --font-size-base: 1rem;
+  --font-size-headline: 2.25rem;
+  --font-size-breaking-news: 4rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
 
   --size-border-radius: 1rem;
   --size-border-width: 10px;

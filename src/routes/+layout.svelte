@@ -1,9 +1,9 @@
 <script lang="ts">
-  export const prerender = true;
-  import './base.css';
-  import 'iconify-icon';
+export const prerender = true;
+import './base.css';
+import 'iconify-icon';
 
-  let { children } = $props();
+let { children } = $props();
 </script>
 
 {@render children()}

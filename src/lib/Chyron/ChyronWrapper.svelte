@@ -1,51 +1,36 @@
 <script lang="ts">
-  import './styles.css';
-  import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from './index.js';
+import './styles.css';
+import { Chyron, ChyronBreakingNews, ChyronHeadline, ChyronLogo } from './index.js';
 
-  // Define interfaces for props and constants
-  interface ChyronConfig {
-    logoSize: number;
-    logoUrl: string;
-    logoAlt: string;
-    defaultHeadlines: string[];
-  }
+// Constants for configuration
+const CONFIG = {
+  logoSize: 175,
+  logoUrl: 'https://placehold.co',
+  logoAlt: 'Logo',
+  defaultHeadlines: [
+    'Breaking News: Major Event Unfolds',
+    'Sports Update: Local Team Wins Championship',
+    'Weather Alert: Severe Storms Expected',
+    'Entertainment Buzz: Celebrity News',
+    'Technology Update: New Gadget Released',
+    'Health Advisory: Important Safety Tips',
+    'Finance News: Market Trends and Analysis',
+    'Travel Update: New Destinations Announced',
+    'Education News: School Board Meeting Highlights',
+  ],
+};
 
-  interface Props {
-    breaking?: boolean;
-    headline?: boolean;
-    headlines?: string[];
-    logo?: boolean;
-    logoLeft?: boolean;
-    chyron?: boolean;
-  }
-
-  // Constants for configuration
-  const CONFIG: ChyronConfig = {
-    logoSize: 175,
-    logoUrl: 'https://placehold.co',
-    logoAlt: 'Logo',
-    defaultHeadlines: [
-      'Breaking News: Major Event Unfolds',
-      'Sports Update: Local Team Wins Championship',
-      'Weather Alert: Severe Storms Expected',
-      'Entertainment Buzz: Celebrity News',
-      'Technology Update: New Gadget Released',
-      'Health Advisory: Important Safety Tips',
-      'Finance News: Market Trends and Analysis',
-      'Travel Update: New Destinations Announced',
-      'Education News: School Board Meeting Highlights',
-    ],
-  };
-
-  // Destructure props with defaults
-  let {
-    breaking = false,
-    chyron = true,
-    logoLeft = false,
-    logo = true,
-    headline = true,
-    headlines = CONFIG.defaultHeadlines,
-  } = $props() as Props;
+let props = $props();
+let breaking = props.breaking ?? false;
+let chyron = props.chyron ?? true;
+let logoLeft = props.logoLeft ?? false;
+let logo = props.logo ?? true;
+let headline = props.headline ?? true;
+let headlines = props.headlines ?? CONFIG.defaultHeadlines;
+let logoUrl = props.logoUrl ?? CONFIG.logoUrl;
+let logoAlt = props.logoAlt ?? CONFIG.logoAlt;
+let logoSize = props.logoSize ?? CONFIG.logoSize;
+let customStyles = props.customStyles ?? {};
 </script>
 
 <div
@@ -60,7 +45,7 @@
     <ChyronBreakingNews />
   {/if}
   {#if logo}
-    <ChyronLogo logoSize={CONFIG.logoSize} logoUrl={CONFIG.logoUrl} logoAlt={CONFIG.logoAlt} />
+    <ChyronLogo logoSize={logoSize} logoUrl={logoUrl} logoAlt={logoAlt} />
   {/if}
   {#if headline}
     <ChyronHeadline {headlines} />

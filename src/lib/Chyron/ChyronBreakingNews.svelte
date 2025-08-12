@@ -1,5 +1,5 @@
 <script lang="ts">
-  let breakingHeadline = 'Breaking News: Major Event Unfolds';
+let breakingHeadline = 'Breaking News: Major Event Unfolds';
 </script>
 
 <div class="breaking-news" style:container-name="breaking-container" style:container-type="size">

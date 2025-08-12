@@ -4,7 +4,7 @@
   --white: rgba(255, 255, 255, 1);
   --dark-gray: rgba(35, 35, 35, 1);
   --gray: rgb(126, 126, 126);
-  --light-gray:rgb(203, 203, 203);
+  --light-gray: rgb(203, 203, 203);
   --blue: rgba(0, 42, 255, 1);
   --light-blue: rgb(191, 200, 246);
 
@@ -27,13 +27,15 @@
   --border-chyron: var(--size-border-width) solid var(--color-chyron-border);
 }
 
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   position: relative;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }

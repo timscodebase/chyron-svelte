@@ -1,9 +1,12 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   position: relative;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }

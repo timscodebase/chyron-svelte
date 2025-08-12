@@ -22,6 +22,22 @@ Install the library via npm:
 npm install chyron-svelte
 ```
 
+## Quick Start
+
+```svelte
+<script>
+  import { ChyronWrapper } from 'chyron-svelte';
+  
+  const headlines = [
+    'Breaking News: Major Event Unfolds',
+    'Sports Update: Team Wins Championship',
+    'Weather Alert: Severe Storms Expected'
+  ];
+</script>
+
+<ChyronWrapper headlines={headlines} />
+```
+
 ## Ensure the Iconify library is included for icon support (used in Chyron.svelte):
 
 
